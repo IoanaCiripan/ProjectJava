@@ -1,22 +1,44 @@
 package models;
-
+import java.lang.*;
 import enums.Domains;
+import pakage1.ConnectionVariables;
+import pakage1.SqlQuerry2;
+import pakage1.ConnectionObject;
 
-public class Book {
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import static pakage1.SqlQuerry2.addNewBook;
+
+public class Book implements SqlQuerry2 {
     private String title;
     private String author;
     private Domains domain;
-    private int ID;
+   // private int ID;
 
-    public Book(){};
-
-    public Book(String title, String author, Domains domain, int ID) {
-        this.title = title;
-        this.author = author;
-        this.domain = domain;
-        this.ID = ID;
-
+    public Book() {
     }
+
+    public Book(String author, String title, Domains domain) {
+        this.author = author;
+        this.title = title;
+        this.domain = domain;
+    }
+
+
+    public Book(String title) {
+        this.title = title;
+    }
+
+
+    public Book(Domains domain) {
+        this.domain = domain;
+    }
+
+
 
     //getters
     public String getTitle() {
@@ -36,7 +58,8 @@ public class Book {
         this.author = author;
     }
 
-    public Domains getDomain() {
+
+        public Domains getDomain() {
         return domain;
     }
 
@@ -44,13 +67,20 @@ public class Book {
         this.domain = domain;
     }
 
-    public int getID() {
-        return ID;
-    }
+//   // public int getID() {
+//        return ID;
+//    }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
+//    public void setID(int ID) {
+//        this.ID = ID;
+//    }
+
+
+
+
+
+
+
 }
 
 
